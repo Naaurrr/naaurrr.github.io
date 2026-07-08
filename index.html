@@ -189,7 +189,12 @@
 
   footer{background:#060E17;text-align:center;padding:20px;font-size:0.73em;color:rgba(255,255,255,0.18);font-family:'JetBrains Mono',monospace;}
 
-  @media(max-width:900px){
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    nav { display: none; }
+    .hero { padding-top: 40px; }
+    body { background: var(--navy) !important; }
+  }
     nav{padding:0 18px;} .nav-links{gap:14px;} .nav-links a{font-size:0.72em;}
     section{padding:56px 20px;} .hero{padding:88px 20px 56px;}
     .hero-inner{grid-template-columns:1fr;} .profile-card{display:none;}
@@ -543,7 +548,7 @@
 <!-- CONTACT -->
 <div class="contact-wrap" id="contact">
   <h2>Get in Touch</h2>
-  <p>Open to instrumentation, embedded systems, and product development roles in Los Angeles.</p>
+
   <div class="contact-links">
     <a href="mailto:nony12.ammar@gmail.com" class="clink">&#9993; nony12.ammar@gmail.com</a>
     <a href="tel:3105980566" class="clink">&#128222; (310) 598-0566</a>
