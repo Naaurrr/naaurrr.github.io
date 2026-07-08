@@ -102,11 +102,14 @@
   /* PROJECTS */
   .projects-list{display:flex;flex-direction:column;gap:36px;}
   .proj-card{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
-  .proj-two-col{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-  .proj-two-col.flip{direction:rtl;}
-  .proj-two-col.flip > *{direction:ltr;}
+  .proj-two-col{display:flex;flex-direction:column;}
+  .proj-two-col.flip{display:flex;flex-direction:column;}
   .proj-info{padding:32px 34px 28px;}
-  .proj-imgs{background:var(--navy);overflow:hidden;display:flex;flex-direction:column;}
+  .proj-imgs{background:var(--navy);overflow:hidden;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;min-height:280px;}
+  .proj-imgs .proj-img-main{grid-column:1 / 3;height:280px;width:100%;object-fit:contain;display:block;background:var(--navy);}
+  .proj-imgs .proj-img-side{height:280px;width:100%;object-fit:contain;display:block;background:var(--navy2);border-left:1px solid var(--borderD);}
+  .proj-imgs-single{background:var(--navy);overflow:hidden;min-height:280px;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .proj-imgs-single img{max-height:280px;max-width:100%;object-fit:contain;display:block;}
   .proj-type{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:7px;}
   .proj-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.08em;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:5px;}
   .proj-date{font-size:0.76em;color:var(--muted);margin-bottom:14px;display:block;}
@@ -118,16 +121,6 @@
   .ptg{font-size:0.69em;background:#EDEAE4;color:var(--mid);padding:3px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;}
   .proj-link{display:inline-flex;align-items:center;gap:5px;font-size:0.76em;color:var(--amber);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:10px;}
   .proj-link:hover{color:var(--amber2);}
-  .proj-img-main{width:100%;height:260px;object-fit:contain;display:block;background:var(--navy);}
-  .proj-img-row{display:grid;grid-template-columns:1fr 1fr;}
-  .proj-img-row img{width:100%;height:150px;object-fit:contain;display:block;border-top:1px solid var(--borderD);background:var(--navy);}
-  .proj-img-row img:first-child{border-right:1px solid var(--borderD);}
-  .proj-img-stack{display:flex;flex-direction:column;height:100%;}
-  .proj-img-stack img{flex:1;width:100%;object-fit:contain;display:block;background:var(--navy);}
-  .proj-img-stack img+img{border-top:1px solid var(--borderD);}
-  .proj-expo-row{display:grid;grid-template-columns:1fr 1fr;height:100%;}
-  .proj-expo-row > *{display:flex;flex-direction:column;justify-content:center;align-items:center;}
-  .proj-expo-row > *+*{border-left:1px solid var(--borderD);}
 
   /* EXPO POSTER EMBED */
   .expo-poster-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;height:100%;min-height:260px;padding:24px;text-decoration:none;background:var(--navy2);transition:background 0.2s;}
@@ -337,23 +330,23 @@
             <h3>NeuroArm - Wireless EEG-Controlled Robotic Arm</h3>
             <span class="proj-date">Sep 2024 &ndash; May 2025 &bull; CSUB Senior Design Expo 2025 &bull; Demonstrated live</span>
             <p>Led a 3-member team building a 2-DOF wireless robotic arm proof of concept controlled by EEG brain signals. Owned the full embedded firmware and wireless communication layer from concept to live demonstration at the Senior Design Expo.</p>
-            <p>Configured ESP32 in SoftAP mode to create a direct Wi-Fi link to MATLAB, bypassing the university institutional network. Wrote C++ firmware to parse UDP command packets, drive three servo motors via PWM, and implement ACK-based handshake logic. Diagnosed and resolved a GPIO boot-mode conflict by remapping PWM pins from strapping pins (GPIO 0/2/5) to safe pins (GPIO 18/19/21) after oscilloscope debugging.</p>
+            <p>The original platform was an STM32 for EEG processing and Arduino for servo communication. When a teammate could not generate compatible firmware for the STM32 within our timeline, and the university firewall blocked Arduino's IoT cloud entirely, I proposed pivoting the full communication layer to an ESP32 in SoftAP mode. This created a direct Wi-Fi link to MATLAB without needing the university network, resolved both blockers simultaneously, and let me write the full C++ firmware myself: UDP command parsing, PWM servo control for three motors, and ACK-based handshake logic for reliable delivery. Delivered a working live demo at the Senior Design Expo within two weeks of the pivot.</p>
             <div class="proj-highlight">
               <span class="hl">Platform pivot under deadline</span>
               <span class="hv">STM32 toolchain + Arduino firewall issue &rarr; ESP32 SoftAP solution shipped in 2 weeks</span>
             </div>
             <div class="proj-tags">
               <span class="ptg">ESP32</span><span class="ptg">C++</span><span class="ptg">SoftAP</span>
-              <span class="ptg">UDP/IP</span><span class="ptg">PWM</span><span class="ptg">ACK handshake</span><span class="ptg">GPIO debug</span>
+              <span class="ptg">UDP/IP</span><span class="ptg">PWM</span><span class="ptg">ACK handshake</span><span class="ptg">STM32 pivot</span>
             </div>
             <a href="https://github.com/Naaurrr/NeuroArm" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/NeuroArm</a><br>
             <a href="https://www.cs.csub.edu/seniorexpo/2025/ECE/Neuro%20Arm/poster.pdf" class="proj-link" target="_blank" style="margin-top:6px;">&#128196; Senior Design Expo Poster (PDF)</a>
           </div>
-          <div class="proj-imgs">
-            <img src="IMG_6287.jpeg" alt="NeuroArm full assembled prototype on lab bench - 3D-printed arm, servo joints, monofilament finger actuation wires" class="proj-img-main" style="object-position:center top;">
-            <div class="proj-img-row">
-              <img src="IMG_6259.jpeg" alt="NeuroArm base housing with Arduino Uno and servo wiring routing through arm structure - top-down view" style="object-position:center;">
-              <img src="IMG_6288.jpeg" alt="NeuroArm power electronics breadboard - toroidal inductor, electrolytic capacitors, 5V BEC circuit, servo wiring harness - top-down view" style="object-position:center;">
+          <div style="background:var(--navy);overflow:hidden;">
+            <img src="IMG_6287.jpeg" alt="NeuroArm assembled prototype" style="width:100%;height:280px;object-fit:contain;display:block;background:var(--navy);">
+            <div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--borderD);">
+              <img src="IMG_6259.jpeg" alt="NeuroArm base and wiring" style="width:100%;height:180px;object-fit:contain;display:block;background:var(--navy2);">
+              <img src="IMG_6288.jpeg" alt="NeuroArm electronics breadboard" style="width:100%;height:180px;object-fit:contain;display:block;background:var(--navy);border-left:1px solid var(--borderD);">
             </div>
           </div>
         </div>
@@ -367,10 +360,10 @@
             <h3>MPU-6050 Flex PCB Breakout</h3>
             <span class="proj-date">May 2026 &ndash; Present &bull; KiCad 7 &bull; Fabricated at JLCPCB</span>
             <p>Designed a single-layer flexible PCB breakout for the MPU-6050 6-axis IMU in KiCad. Polyimide substrate, ENIG finish, 0603 and 0201 SMD components. Custom schematic symbol for the MPU-6050 GY-521 module. Laser-cut star profile with silkscreen artwork. Board dimensions: 37.21 &times; 38.07mm. C1 (100nF decoupling) placed within 2.5mm of VCC pin. LED resistor calculated at 130&Omega;.</p>
-            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation - documented and flagged for Rev B.</p>
+            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation. Root cause documented and corrected in the Rev B schematic. This project is ongoing and actively in progress.</p>
             <div class="proj-highlight">
-              <span class="hl">Debug outcome</span>
-              <span class="hv">Reversed LED polarity on D1 - caught via systematic DMM testing - documented for next revision</span>
+              <span class="hl">Status</span>
+              <span class="hv">Rev B in progress - LED polarity corrected in schematic, actively working toward next fabrication run</span>
             </div>
             <div class="proj-tags">
               <span class="ptg">KiCad 7</span><span class="ptg">Flex PCB</span><span class="ptg">ENIG</span>
@@ -379,10 +372,10 @@
             <a href="https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/MPU6050-Flex-PCB-Breakout</a>
           </div>
           <div class="proj-imgs">
-            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB fresh from JLCPCB fabrication - black polyimide star profile, gold ENIG copper traces, next to GY-521 module for scale" class="proj-img-main" style="object-position:center;">
-            <div class="proj-img-row">
-              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB held in helping-hands tool during assembly - silkscreen labels, VCC/GND/SCL/SDA header, R1 and C1 pads, custom bird artwork and Nour signature" style="object-position:top;">
-              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB laid flat with tape fixturing - R1 and D1 assembled, J1 header pads visible, post-reflow inspection" style="object-position:center;">
+            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB star profile with ENIG traces" class="proj-img-main">
+            <div style="display:flex;flex-direction:column;border-left:1px solid var(--borderD);">
+              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB during assembly" style="flex:1;width:100%;height:140px;object-fit:contain;display:block;background:var(--navy2);">
+              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB post-reflow inspection" style="flex:1;width:100%;height:140px;object-fit:contain;display:block;background:var(--navy);border-top:1px solid var(--borderD);">
             </div>
           </div>
         </div>
@@ -518,14 +511,6 @@
           <div class="cert-name">NASA Open Science Essentials</div>
           <div class="cert-issuer">National Aeronautics and Space Administration &bull; Jun 2025</div>
           <a href="https://www.credly.com/badges/0fd43564-cd54-40ed-af11-22bf003d4d3b/linked_in_profile" target="_blank">&#128279; View on Credly</a>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-badge-placeholder">&#128196;</div>
-        <div class="cert-info">
-          <div class="cert-name">FE Exam - In Preparation</div>
-          <div class="cert-issuer">Fundamentals of Engineering &bull; NCEES &bull; 2026</div>
-          <div style="font-size:0.78em;color:var(--muted);margin-top:4px;font-style:italic;">Systematic review of circuits, systems, signals, mathematics, and engineering economics</div>
         </div>
       </div>
     </div>
