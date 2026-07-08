@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nour Ammar — Electrical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0D1B2A; --navy2:#152236; --navy3:#1C2F44;
+    --cream:#F7F4EF; --cream2:#EEE9E1;
+    --amber:#C8860A; --amber2:#E8A01A; --amber3:#F5B830;
+    --ink:#1C2B3A; --mid:#4A5C6A; --muted:#8A929E;
+    --border:#D8D4CC; --borderD:#2A3D50;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,27,42,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--borderD);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:62px;}
+  .nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1em;color:white;letter-spacing:0.01em;}
+  .nav-logo span{color:var(--amber2);}
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{font-size:0.78em;font-weight:500;color:rgba(255,255,255,0.52);text-decoration:none;letter-spacing:0.09em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--amber2);}
+
+  /* HERO */
+  .hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 80px 80px;position:relative;overflow:hidden;}
+  .hero-bg-grid{position:absolute;inset:0;opacity:0.032;background-image:linear-gradient(var(--amber) 1px,transparent 1px),linear-gradient(90deg,var(--amber) 1px,transparent 1px);background-size:44px 44px;}
+  .hero-glow{position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,134,10,0.07) 0%,transparent 70%);pointer-events:none;}
+  .hero-inner{display:grid;grid-template-columns:1fr 320px;gap:72px;align-items:center;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
+  .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.74em;color:var(--amber2);letter-spacing:0.14em;margin-bottom:20px;display:block;}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4em,5vw,3.8em);font-weight:700;color:white;line-height:1.08;letter-spacing:-0.03em;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--amber2);}
+  .hero-bio{font-size:0.97em;color:rgba(255,255,255,0.56);max-width:520px;line-height:1.82;margin-bottom:36px;}
+  .hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:40px;padding:20px 0;border-top:1px solid var(--borderD);border-bottom:1px solid var(--borderD);}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.75em;font-weight:700;color:white;display:block;line-height:1;margin-bottom:3px;}
+  .stat-num sup{color:var(--amber2);font-size:0.52em;font-weight:600;}
+  .stat-label{font-size:0.7em;color:rgba(255,255,255,0.36);text-transform:uppercase;letter-spacing:0.1em;}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:7px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:0.84em;padding:12px 22px;border-radius:6px;text-decoration:none;letter-spacing:0.03em;transition:all 0.2s;}
+  .btn-primary{background:var(--amber);color:white;}
+  .btn-primary:hover{background:var(--amber2);transform:translateY(-1px);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.65);}
+  .btn-ghost:hover{border-color:var(--amber2);color:var(--amber2);}
+
+  /* PROFILE CARD */
+  .profile-card{background:var(--navy2);border:1px solid var(--borderD);border-radius:16px;padding:24px;text-align:center;}
+  .profile-photo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--amber);margin:0 auto 14px;display:block;}
+  .profile-name{font-family:'Space Grotesk',sans-serif;font-size:0.97em;font-weight:700;color:white;margin-bottom:3px;}
+  .profile-title{font-size:0.8em;color:rgba(255,255,255,0.45);margin-bottom:14px;}
+  .profile-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:16px;}
+  .ptag{font-size:0.68em;background:rgba(200,134,10,0.12);color:var(--amber2);border:1px solid rgba(200,134,10,0.22);padding:3px 9px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .profile-links{display:flex;flex-direction:column;gap:7px;}
+  .plink{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:rgba(255,255,255,0.6);font-size:0.77em;text-decoration:none;transition:all 0.2s;font-family:'JetBrains Mono',monospace;text-align:left;}
+  .plink:hover{background:rgba(200,134,10,0.1);border-color:var(--amber);color:var(--amber2);}
+
+  /* DIVIDER */
+  .trace{height:2px;background:linear-gradient(90deg,transparent,var(--amber) 25%,var(--amber2) 50%,var(--amber) 75%,transparent);opacity:0.45;}
+
+  /* SECTIONS */
+  section{padding:84px 80px;}
+  section.dark{background:var(--navy);}
+  section.mid{background:var(--cream2);}
+  .section-inner{max-width:1100px;margin:0 auto;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.7em;color:var(--amber);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px;display:block;}
+  section.dark .eyebrow{color:var(--amber2);}
+  .section-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.5em,3vw,2em);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:40px;line-height:1.15;}
+  section.dark .section-h{color:white;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
+  .skill-card{background:white;border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+  .skill-card h4{font-family:'Space Grotesk',sans-serif;font-size:0.76em;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+  .skill-card ul{list-style:none;}
+  .skill-card li{font-size:0.84em;color:var(--mid);padding:3px 0;border-bottom:1px solid #F0EDE8;}
+  .skill-card li:last-child{border-bottom:none;}
+
+  /* EXPERIENCE */
+  .exp-item{display:grid;grid-template-columns:170px 1fr;gap:40px;padding:44px 0;border-bottom:1px solid var(--borderD);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-date{font-family:'JetBrains Mono',monospace;font-size:0.72em;color:var(--amber2);display:block;margin-bottom:5px;}
+  .exp-org{font-family:'Space Grotesk',sans-serif;font-size:0.9em;font-weight:700;color:white;margin-bottom:2px;}
+  .exp-loc{font-size:0.76em;color:rgba(255,255,255,0.32);}
+  .exp-content h3{font-family:'Space Grotesk',sans-serif;font-size:1.08em;font-weight:600;color:white;margin-bottom:12px;}
+  .exp-content p{font-size:0.87em;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:10px;}
+  .specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .spec{font-family:'JetBrains Mono',monospace;font-size:0.7em;background:rgba(200,134,10,0.1);color:var(--amber2);padding:3px 10px;border-radius:4px;border:1px solid rgba(200,134,10,0.2);}
+
+  /* NASA EPIC PHOTO STRIP */
+  .nasa-strip{margin-top:32px;}
+  .nasa-strip-label{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;display:block;}
+  .nasa-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .nasa-photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px;border:1px solid var(--borderD);display:block;transition:transform 0.2s,border-color 0.2s;cursor:pointer;}
+  .nasa-photos img:hover{transform:scale(1.03);border-color:var(--amber);}
+  .nasa-photos img:first-child{grid-column:span 2;aspect-ratio:4/3;}
+  .nasa-article-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78em;color:var(--amber2);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:12px;}
+  .nasa-article-link:hover{color:var(--amber3);}
+
+  /* PROJECTS */
+  .projects-list{display:flex;flex-direction:column;gap:36px;}
+  .proj-card{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .proj-two-col{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .proj-two-col.flip{direction:rtl;}
+  .proj-two-col.flip > *{direction:ltr;}
+  .proj-info{padding:32px 34px 28px;}
+  .proj-imgs{background:var(--navy);overflow:hidden;display:flex;flex-direction:column;}
+  .proj-type{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:7px;}
+  .proj-info h3{font-family:'Space Grotesk',sans-serif;font-size:1.08em;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:5px;}
+  .proj-date{font-size:0.76em;color:var(--muted);margin-bottom:14px;display:block;}
+  .proj-info p{font-size:0.86em;color:var(--mid);line-height:1.77;margin-bottom:10px;}
+  .proj-highlight{background:var(--cream2);border-radius:7px;padding:10px 14px;margin:12px 0;}
+  .proj-highlight .hl{font-family:'JetBrains Mono',monospace;font-size:0.65em;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:3px;}
+  .proj-highlight .hv{font-family:'Space Grotesk',sans-serif;font-size:0.84em;font-weight:600;color:var(--ink);}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
+  .ptg{font-size:0.69em;background:#EDEAE4;color:var(--mid);padding:3px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;}
+  .proj-link{display:inline-flex;align-items:center;gap:5px;font-size:0.76em;color:var(--amber);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:10px;}
+  .proj-link:hover{color:var(--amber2);}
+  .proj-img-main{width:100%;height:260px;object-fit:cover;display:block;}
+  .proj-img-row{display:grid;grid-template-columns:1fr 1fr;}
+  .proj-img-row img{width:100%;height:150px;object-fit:cover;display:block;border-top:1px solid var(--borderD);}
+  .proj-img-row img:first-child{border-right:1px solid var(--borderD);}
+  .proj-img-stack{display:flex;flex-direction:column;height:100%;}
+  .proj-img-stack img{flex:1;width:100%;object-fit:cover;display:block;}
+  .proj-img-stack img+img{border-top:1px solid var(--borderD);}
+  .proj-expo-row{display:grid;grid-template-columns:1fr 1fr;height:100%;}
+  .proj-expo-row > *{display:flex;flex-direction:column;justify-content:center;align-items:center;}
+  .proj-expo-row > *+*{border-left:1px solid var(--borderD);}
+
+  /* EXPO POSTER EMBED */
+  .expo-poster-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;height:100%;min-height:260px;padding:24px;text-decoration:none;background:var(--navy2);transition:background 0.2s;}
+  .expo-poster-btn:hover{background:var(--navy3);}
+  .expo-icon{font-size:3em;margin-bottom:4px;}
+  .expo-label{font-family:'JetBrains Mono',monospace;font-size:0.72em;color:var(--amber2);letter-spacing:0.1em;text-align:center;}
+  .expo-sub{font-size:0.74em;color:rgba(255,255,255,0.35);text-align:center;margin-top:4px;}
+
+  /* ORDER OF ENGINEER */
+  .oe-banner{background:var(--navy2);border:1px solid var(--borderD);border-radius:12px;padding:24px 28px;display:flex;align-items:center;gap:24px;margin-top:28px;}
+  .oe-ring{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#8B7020,var(--amber2),#8B7020);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4em;}
+  .oe-text h4{font-family:'Space Grotesk',sans-serif;font-size:0.95em;font-weight:700;color:white;margin-bottom:4px;}
+  .oe-text p{font-size:0.82em;color:rgba(255,255,255,0.5);line-height:1.6;}
+
+  /* GITHUB */
+  .github-strip{background:var(--navy2);border:1px solid var(--borderD);border-radius:12px;padding:24px 28px;display:flex;align-items:center;gap:28px;margin-bottom:28px;}
+  .gh-avatar{width:52px;height:52px;border-radius:50%;border:2px solid var(--amber);object-fit:cover;flex-shrink:0;}
+  .gh-bio{font-size:0.88em;color:rgba(255,255,255,0.65);flex:1;line-height:1.6;}
+  .gh-bio strong{color:white;font-family:'Space Grotesk',sans-serif;}
+  .gh-meta{font-family:'JetBrains Mono',monospace;font-size:0.72em;color:var(--amber2);margin-top:4px;display:block;}
+  .repos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .repo-card{background:var(--navy2);border:1px solid var(--borderD);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:9px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;}
+  .repo-card:hover{border-color:var(--amber);transform:translateY(-2px);}
+  .repo-card h4{font-family:'Space Grotesk',sans-serif;font-size:0.88em;font-weight:600;color:white;}
+  .repo-card p{font-size:0.78em;color:rgba(255,255,255,0.48);line-height:1.6;flex:1;}
+  .repo-lang{display:flex;align-items:center;gap:6px;font-size:0.72em;color:rgba(255,255,255,0.38);font-family:'JetBrains Mono',monospace;}
+  .lang-dot{width:9px;height:9px;border-radius:50%;background:var(--amber2);}
+
+  /* CERTS */
+  .cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+  .cert-card{background:white;border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;}
+  .cert-badge{width:56px;height:56px;border-radius:8px;object-fit:contain;flex-shrink:0;border:1px solid var(--border);}
+  .cert-badge-placeholder{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;}
+  .cert-info .cert-name{font-family:'Space Grotesk',sans-serif;font-size:0.9em;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .cert-info .cert-issuer{font-size:0.78em;color:var(--mid);margin-bottom:8px;}
+  .cert-info a{font-size:0.74em;color:var(--amber);text-decoration:none;font-family:'JetBrains Mono',monospace;}
+  .cert-info a:hover{color:var(--amber2);}
+
+  /* EDUCATION */
+  .edu-main{background:white;border:1px solid var(--border);border-radius:10px;padding:24px 26px;margin-bottom:16px;}
+  .edu-main .inst{font-family:'Space Grotesk',sans-serif;font-size:1.05em;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .edu-main .deg{font-size:0.87em;color:var(--mid);margin-bottom:5px;}
+  .edu-main .gpa{font-family:'JetBrains Mono',monospace;font-size:0.76em;color:var(--amber);margin-bottom:12px;display:block;}
+  .honors{display:flex;flex-wrap:wrap;gap:7px;}
+  .honor{font-size:0.73em;background:rgba(200,134,10,0.08);color:var(--amber);border:1px solid rgba(200,134,10,0.22);padding:4px 10px;border-radius:20px;font-weight:500;}
+  .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+  .course-card{background:white;border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
+  .course-card h4{font-family:'Space Grotesk',sans-serif;font-size:0.87em;font-weight:700;color:var(--ink);margin-bottom:3px;}
+  .course-card .cm{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber);margin-bottom:8px;display:block;}
+  .course-card p{font-size:0.82em;color:var(--mid);line-height:1.7;}
+
+  /* CONTACT */
+  .contact-wrap{background:var(--navy);padding:80px;text-align:center;}
+  .contact-wrap h2{font-family:'Space Grotesk',sans-serif;font-size:1.9em;font-weight:700;color:white;margin-bottom:10px;}
+  .contact-wrap p{color:rgba(255,255,255,0.45);margin-bottom:34px;font-size:0.93em;}
+  .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .clink{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);color:rgba(255,255,255,0.72);font-size:0.84em;padding:11px 20px;border-radius:6px;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;transition:all 0.2s;}
+  .clink:hover{background:rgba(200,134,10,0.12);border-color:var(--amber);color:var(--amber2);}
+
+  footer{background:#060E17;text-align:center;padding:20px;font-size:0.73em;color:rgba(255,255,255,0.18);font-family:'JetBrains Mono',monospace;}
+
+  @media(max-width:900px){
+    nav{padding:0 18px;} .nav-links{gap:14px;} .nav-links a{font-size:0.72em;}
+    section{padding:56px 20px;} .hero{padding:88px 20px 56px;}
+    .hero-inner{grid-template-columns:1fr;} .profile-card{display:none;}
+    .exp-item{grid-template-columns:1fr;gap:10px;}
+    .proj-two-col,.proj-two-col.flip{grid-template-columns:1fr;direction:ltr;}
+    .proj-imgs{height:200px;} .proj-img-main,.proj-img-stack img{height:200px;}
+    .nasa-photos{grid-template-columns:repeat(3,1fr);} .nasa-photos img:first-child{grid-column:span 1;}
+    .repos-grid,.cert-grid{grid-template-columns:1fr;}
+    .contact-wrap{padding:56px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Nour <span>Ammar</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">// Electrical Engineer &bull; Instrumentation &bull; Embedded Systems &bull; PCB Design</span>
+      <h1>Building hardware<br>that works in the<br><em>real world.</em></h1>
+      <p class="hero-bio">BS Electrical Engineering, CSUB — Cum Laude, May 2025. Instrumentation &amp; Test Engineering Intern at NASA Armstrong Flight Research Center, supporting the EPIC parachute sensor program. Background in embedded firmware, PCB design and assembly, control systems, and aerospace data acquisition.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">PCBs Designed</span></div>
+        <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Live Drop Tests</span></div>
+        <div class="stat-item"><span class="stat-num">88.8<sup>%</sup></span><span class="stat-label">SysID Model Fit</span></div>
+        <div class="stat-item"><span class="stat-num">&plusmn;0.5<sup>ms</sup></span><span class="stat-label">Timing Accuracy</span></div>
+      </div>
+      <div class="hero-cta">
+        <a href="https://github.com/Naaurrr" class="btn btn-primary" target="_blank">&#128196; GitHub</a>
+        <a href="https://linkedin.com/in/nour-ammar-b8578026a" class="btn btn-ghost" target="_blank">&#128279; LinkedIn</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="profile-card">
+      <img src="https://avatars.githubusercontent.com/u/192553491?v=4" alt="Nour Ammar" class="profile-photo">
+      <div class="profile-name">Nour Ammar</div>
+      <div class="profile-title">Electrical Engineer &bull; CSUB &rsquo;25</div>
+      <div class="profile-tags">
+        <span class="ptag">ESP32</span><span class="ptag">KiCad</span><span class="ptag">Altium</span>
+        <span class="ptag">MATLAB</span><span class="ptag">C++</span><span class="ptag">Python</span>
+      </div>
+      <div class="profile-links">
+        <a href="https://github.com/Naaurrr" class="plink" target="_blank">&#128196; github.com/Naaurrr</a>
+        <a href="https://linkedin.com/in/nour-ammar-b8578026a" class="plink" target="_blank">&#128279; linkedin.com/in/nour-ammar</a>
+        <a href="mailto:nony12.ammar@gmail.com" class="plink">&#9993; nony12.ammar@gmail.com</a>
+        <a href="tel:3105980566" class="plink">&#128222; (310) 598-0566</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <span class="eyebrow">// Capabilities</span>
+    <h2 class="section-h">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h4>PCB Design &amp; Fabrication</h4><ul><li>Altium Designer</li><li>KiCad 7</li><li>Flex PCB (polyimide)</li><li>Schematic Capture</li><li>Custom Footprints</li><li>ENIG Finish</li><li>Gerber Review / DRC</li></ul></div>
+      <div class="skill-card"><h4>Assembly &amp; Integration</h4><ul><li>SMD Soldering (0201, 0603)</li><li>THT Soldering</li><li>Syringe Paste Application</li><li>Reflow Techniques</li><li>Sensor Integration</li><li>ESD Awareness</li><li>Breadboarding</li></ul></div>
+      <div class="skill-card"><h4>Test &amp; Instrumentation</h4><ul><li>Oscilloscopes</li><li>Multimeters (DMM)</li><li>Waveform Generators</li><li>Continuity Testing</li><li>DAQ Systems</li><li>LabVIEW</li><li>Functional Testing</li></ul></div>
+      <div class="skill-card"><h4>Embedded Systems</h4><ul><li>ESP32 / Arduino / STM32</li><li>Raspberry Pi</li><li>C++ Firmware</li><li>PWM Control</li><li>UDP/IP Communication</li><li>Wi-Fi SoftAP (IEEE 802.11)</li></ul></div>
+      <div class="skill-card"><h4>Programming &amp; Modeling</h4><ul><li>MATLAB / Simulink</li><li>Python</li><li>C++</li><li>PID Control</li><li>System Identification</li><li>Signal Processing</li><li>Git / GitHub</li></ul></div>
+      <div class="skill-card"><h4>Simulation Tools</h4><ul><li>LTspice</li><li>PSpice</li><li>Multisim</li><li>MATLAB/Simulink</li><li>z-Plane Analysis</li><li>Closed-loop Simulation</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="dark">
+  <div class="section-inner">
+    <span class="eyebrow">// Professional</span>
+    <h2 class="section-h">Work Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <span class="exp-date">Jun &ndash; Aug 2025</span>
+        <div class="exp-org">NASA Armstrong</div>
+        <div class="exp-loc">Edwards, CA</div>
+      </div>
+      <div class="exp-content">
+        <h3>Instrumentation &amp; Test Engineering Intern</h3>
+        <p>Supported the EPIC (Enhancing Parachutes by Instrumenting the Canopy) project at NASA Armstrong Flight Research Center — research aimed at developing flexible strain-sensing technology for supersonic parachutes, with future applications for delivering scientific payloads to Mars. Integrated the VN-200 GNSS/INS sensor with embedded computers and microcontrollers across five live parachute drop tests, capturing synchronized acceleration, GPS, gyroscope, and position data at &plusmn;0.5&nbsp;ms timing accuracy.</p>
+        <p>Designed three custom PCBs (two flexible) in Altium Designer and KiCad, including custom footprints for physical sensor mounting and deployment onto parachute canopies during live tests. Flex circuits used polyimide substrates with ENIG finish. Built Python DAQ pipelines with Butterworth zero-phase filtering and time synchronization across all five test runs, reducing preparation and analysis time by approximately 40%.</p>
+        <p>Supported instrumentation setup, functional testing, and validation for two live canopy drop tests in the dry lake bed at Edwards AFB. Worked alongside NASA researchers from the Dale Reed Subscale Flight Research Laboratory developing methods for temperature testing flexible sensors and data analysis for future tests.</p>
+        <div class="specs">
+          <span class="spec">EPIC Program</span><span class="spec">VN-200 GNSS/INS</span><span class="spec">Altium Designer</span>
+          <span class="spec">KiCad</span><span class="spec">Flex PCB</span><span class="spec">Python DAQ</span>
+          <span class="spec">Butterworth zero-phase</span><span class="spec">&plusmn;0.5ms sync</span><span class="spec">5 drop tests</span>
+        </div>
+
+        <!-- NASA PHOTOS -->
+        <div class="nasa-strip">
+          <span class="nasa-strip-label">// Field photography — NASA Armstrong, Edwards AFB, June 2025</span>
+          <div class="nasa-photos">
+            <!-- Your uploaded LinkedIn photo -->
+            <img src="nasa_field_photo.png" alt="Nour Ammar setting up parachute canopy on dry lake bed at Edwards AFB — NASA Armstrong EPIC drop test" title="Setting up parachute canopy for drop test — Edwards AFB, 2025">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team examining capsule and parachute after drop test on dry lake bed" title="Post-recovery inspection — NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0864/AFRC2025-0094-0864~large.jpg?w=640&h=960&fit=clip&crop=faces%2Cfocalpoint" alt="Parachute deploying fully against blue sky after air launch" title="Parachute deployment — NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0844/AFRC2025-0094-0844~large.jpg?w=800&h=640&fit=clip&crop=faces%2Cfocalpoint" alt="Alta X drone at altitude before releasing the EPIC experiment" title="Alta X drone at altitude — NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0171/AFRC2025-0094-0171~large.jpg?w=800&h=533&fit=clip&crop=faces%2Cfocalpoint" alt="NASA researchers attaching capsule to the EPIC experiment" title="Capsule attachment — NASA/Christopher LC Clark">
+          </div>
+          <a href="https://www.nasa.gov/image-article/nasa-tests-epic-solution-for-supersonic-parachute-deliveries/" class="nasa-article-link" target="_blank">&#128279; NASA.gov — "NASA Tests Epic Solution for Supersonic Parachute Deliveries" (Jul 2025)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="eyebrow">// Technical Work</span>
+    <h2 class="section-h">Projects</h2>
+    <div class="projects-list">
+
+      <!-- NEUROARM -->
+      <div class="proj-card">
+        <div class="proj-two-col">
+          <div class="proj-info">
+            <span class="proj-type">Senior Capstone &bull; Project Leader &bull; Embedded Systems</span>
+            <h3>NeuroArm &mdash; Wireless EEG-Controlled Robotic Arm</h3>
+            <span class="proj-date">Sep 2024 &ndash; May 2025 &bull; CSUB Senior Design Expo 2025 &bull; Demonstrated live</span>
+            <p>Led a 3-member team building a 2-DOF wireless robotic arm proof of concept controlled by EEG brain signals. Owned the full embedded firmware and wireless communication layer from concept to live demonstration at the Senior Design Expo.</p>
+            <p>Configured ESP32 in SoftAP mode to create a direct Wi-Fi link to MATLAB, bypassing the university institutional network. Wrote C++ firmware to parse UDP command packets, drive three servo motors via PWM, and implement ACK-based handshake logic. Diagnosed and resolved a GPIO boot-mode conflict by remapping PWM pins from strapping pins (GPIO 0/2/5) to safe pins (GPIO 18/19/21) after oscilloscope debugging.</p>
+            <div class="proj-highlight">
+              <span class="hl">Platform pivot under deadline</span>
+              <span class="hv">STM32 toolchain + Arduino firewall issue &rarr; ESP32 SoftAP solution shipped in 2 weeks</span>
+            </div>
+            <div class="proj-tags">
+              <span class="ptg">ESP32</span><span class="ptg">C++</span><span class="ptg">SoftAP</span>
+              <span class="ptg">UDP/IP</span><span class="ptg">PWM</span><span class="ptg">ACK handshake</span><span class="ptg">GPIO debug</span>
+            </div>
+            <a href="https://github.com/Naaurrr/NeuroArm" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/NeuroArm</a><br>
+            <a href="https://www.cs.csub.edu/seniorexpo/2025/ECE/Neuro%20Arm/poster.pdf" class="proj-link" target="_blank" style="margin-top:6px;">&#128196; Senior Design Expo Poster (PDF)</a>
+          </div>
+          <div class="proj-imgs">
+            <img src="IMG_6287.jpeg" alt="NeuroArm full assembled prototype on lab bench — 3D-printed arm, servo joints, monofilament finger actuation wires" class="proj-img-main" style="object-position:center top;">
+            <div class="proj-img-row">
+              <img src="IMG_6259.jpeg" alt="NeuroArm base housing with Arduino Uno and servo wiring routing through arm structure — top-down view" style="object-position:center;">
+              <img src="IMG_6288.jpeg" alt="NeuroArm power electronics breadboard — toroidal inductor, electrolytic capacitors, 5V BEC circuit, servo wiring harness — top-down view" style="object-position:center;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MPU-6050 -->
+      <div class="proj-card">
+        <div class="proj-two-col flip">
+          <div class="proj-info">
+            <span class="proj-type">Personal Project &bull; PCB Design &bull; Hardware Debug</span>
+            <h3>MPU-6050 Flex PCB Breakout</h3>
+            <span class="proj-date">May 2026 &ndash; Present &bull; KiCad 7 &bull; Fabricated at JLCPCB</span>
+            <p>Designed a single-layer flexible PCB breakout for the MPU-6050 6-axis IMU in KiCad. Polyimide substrate, ENIG finish, 0603 and 0201 SMD components. Custom schematic symbol for the MPU-6050 GY-521 module. Laser-cut star profile with silkscreen artwork. Board dimensions: 37.21 &times; 38.07mm. C1 (100nF decoupling) placed within 2.5mm of VCC pin. LED resistor calculated at 130&Omega;.</p>
+            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation — documented and flagged for Rev B.</p>
+            <div class="proj-highlight">
+              <span class="hl">Debug outcome</span>
+              <span class="hv">Reversed LED polarity on D1 &mdash; caught via systematic DMM testing &mdash; documented for next revision</span>
+            </div>
+            <div class="proj-tags">
+              <span class="ptg">KiCad 7</span><span class="ptg">Flex PCB</span><span class="ptg">ENIG</span>
+              <span class="ptg">polyimide</span><span class="ptg">0603/0201 SMD</span><span class="ptg">I2C</span><span class="ptg">JLCPCB</span>
+            </div>
+            <a href="https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/MPU6050-Flex-PCB-Breakout</a>
+          </div>
+          <div class="proj-imgs">
+            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB fresh from JLCPCB fabrication — black polyimide star profile, gold ENIG copper traces, next to GY-521 module for scale" class="proj-img-main" style="object-position:center;">
+            <div class="proj-img-row">
+              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB held in helping-hands tool during assembly — silkscreen labels, VCC/GND/SCL/SDA header, R1 and C1 pads, custom bird artwork and Nour signature" style="object-position:top;">
+              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB laid flat with tape fixturing — R1 and D1 assembled, J1 header pads visible, post-reflow inspection" style="object-position:center;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVO PID -->
+      <div class="proj-card">
+        <div class="proj-two-col">
+          <div class="proj-info">
+            <span class="proj-type">Personal Project &bull; Control Systems &bull; System Identification</span>
+            <h3>Servo-PID-Tuning &mdash; Hardware System Identification</h3>
+            <span class="proj-date">Mar 2026 &bull; MATLAB / Arduino</span>
+            <p>Performed hardware-in-the-loop system identification on hobby servo motors. Arduino swept 1000&ndash;2000&nbsp;&mu;s PWM while reading potentiometer angle feedback via a 3D-printed mechanical coupling at 50&nbsp;Hz. MATLAB: tfest &rarr; 2nd-order TF at 88.8% fit. ZOH discretization at Ts&nbsp;=&nbsp;0.021&nbsp;s. pidtune &rarr; Kp&nbsp;14.50, Ki&nbsp;98.12, Kd&nbsp;0.14. Closed-loop simulation validated. Gains not deployed to hardware.</p>
+            <div class="proj-highlight">
+              <span class="hl">Results</span>
+              <span class="hv">2nd-order TF at 88.8% fit &bull; ZOH Ts=0.021s &bull; Kp 14.50 / Ki 98.12 / Kd 0.14</span>
+            </div>
+            <div class="proj-tags">
+              <span class="ptg">MATLAB tfest</span><span class="ptg">System ID</span><span class="ptg">ZOH</span>
+              <span class="ptg">pidtune</span><span class="ptg">2nd-order TF</span><span class="ptg">Arduino</span><span class="ptg">iddata</span>
+            </div>
+            <a href="https://github.com/Naaurrr/Servo-PID-Tuning" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/Servo-PID-Tuning</a>
+          </div>
+          <div class="proj-imgs" style="display:flex;align-items:center;justify-content:center;padding:32px;background:var(--navy2);">
+            <div style="text-align:center;">
+              <div style="font-size:3em;margin-bottom:16px;">&#9881;</div>
+              <div style="font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,0.4);font-size:0.78em;line-height:2;">
+                <span style="color:var(--amber2);">Arduino</span> sweep at 50Hz<br>
+                potentiometer feedback<br>
+                MATLAB <span style="color:var(--amber2);">tfest</span> &rarr; 88.8% fit<br>
+                <span style="color:var(--amber2);">ZOH</span> Ts = 0.021s<br>
+                <span style="color:var(--amber2);">pidtune</span> &rarr; Kp 14.50<br>
+                closed-loop sim validated
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COURSEWORK: ROBOTICS + DSP side by side -->
+      <div class="proj-card">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+          <div class="proj-info" style="border-right:1px solid var(--border);">
+            <span class="proj-type">Robotics Coursework &bull; CSUB &bull; Jan&ndash;May 2025</span>
+            <h3>Robotic Manipulator Kinematics Modeling</h3>
+            <p>Forward kinematics using Product of Exponentials (PoE). Screw-axis formulations, 4&times;4 homogeneous transformation matrices, end-effector pose in 3D space. Validated with MATLAB 3D visualization across varying joint configurations.</p>
+            <div class="proj-tags"><span class="ptg">PoE</span><span class="ptg">screw axis</span><span class="ptg">4x4 transforms</span><span class="ptg">MATLAB 3D</span></div>
+          </div>
+          <div class="proj-info">
+            <span class="proj-type">DSP &amp; Controls Coursework &bull; CSUB &bull; Aug&ndash;Dec 2024</span>
+            <h3>Signal Processing &amp; Control System Analysis</h3>
+            <p>DTFT and z-transform discrete-time system modeling, 400&times;400 z-plane transfer function magnitude surfaces for stability visualization, DTFS spectral coefficient extraction and signal reconstruction through inverse transforms.</p>
+            <div class="proj-tags"><span class="ptg">DTFT</span><span class="ptg">z-transform</span><span class="ptg">DTFS</span><span class="ptg">z-plane</span><span class="ptg">MATLAB</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- GITHUB -->
+<section id="github" class="dark">
+  <div class="section-inner">
+    <span class="eyebrow">// Open Source</span>
+    <h2 class="section-h">GitHub</h2>
+    <div class="github-strip">
+      <img src="https://avatars.githubusercontent.com/u/192553491?v=4" class="gh-avatar" alt="GitHub profile photo">
+      <div class="gh-bio">
+        <strong>Naaurrr (Nour Ammar)</strong><br>
+        Electrical Engineer who is passionate about systems that work in the real world.<br>
+        <span class="gh-meta">&#127988; California &bull; 3 public repositories &bull; github.com/Naaurrr</span>
+      </div>
+      <a href="https://github.com/Naaurrr" class="btn btn-ghost" target="_blank" style="white-space:nowrap;flex-shrink:0;">View Profile &rarr;</a>
+    </div>
+    <div class="repos-grid">
+      <a href="https://github.com/Naaurrr/NeuroArm" class="repo-card" target="_blank">
+        <h4>&#128196; NeuroArm</h4>
+        <p>Wireless EEG-controlled robotic arm. ESP32 SoftAP Wi-Fi, UDP/ACK firmware, PWM servo control, GPIO boot-mode debug. Live demo at CSUB Senior Design Expo 2025.</p>
+        <div class="repo-lang"><span class="lang-dot" style="background:#E34C26;"></span>MATLAB 53.5% &bull; C++ 46.5%</div>
+      </a>
+      <a href="https://github.com/Naaurrr/Servo-PID-Tuning" class="repo-card" target="_blank">
+        <h4>&#128196; Servo-PID-Tuning</h4>
+        <p>Hardware system identification on servo motors. Arduino 50Hz logging, MATLAB tfest, 88.8% model fit, ZOH discretization, pidtune, closed-loop simulation.</p>
+        <div class="repo-lang"><span class="lang-dot"></span>MATLAB</div>
+      </a>
+      <a href="https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout" class="repo-card" target="_blank">
+        <h4>&#128196; MPU6050-Flex-PCB-Breakout</h4>
+        <p>Single-layer flex PCB for MPU-6050 IMU. KiCad 7, polyimide/ENIG, 0603/0201 components, laser-cut star profile, Gerbers included, JLCPCB fabricated.</p>
+        <div class="repo-lang"><span class="lang-dot" style="background:#555;"></span>KiCad / Hardware</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="section-inner">
+    <span class="eyebrow">// Academic Background</span>
+    <h2 class="section-h">Education, Certifications &amp; Honors</h2>
+
+    <!-- Education -->
+    <div class="edu-main">
+      <div class="inst">California State University, Bakersfield</div>
+      <div class="deg">Bachelor of Science, Electrical Engineering &bull; Minor in Philosophy &bull; May 2025</div>
+      <span class="gpa">GPA: 3.38 / 4.0</span>
+      <div class="honors">
+        <span class="honor">Cum Laude</span>
+        <span class="honor">Dean's List &times;6 Semesters</span>
+        <span class="honor">Order of the Engineer</span>
+      </div>
+    </div>
+
+    <!-- Order of Engineer callout -->
+    <div class="oe-banner">
+      <div class="oe-ring">&#9951;</div>
+      <div class="oe-text">
+        <h4>Order of the Engineer</h4>
+        <p>Induction into the Order of the Engineer, an obligation taken by engineers in the United States to uphold the dignity, standards, and ethics of the engineering profession. Signified by the wearing of a stainless steel ring on the working hand — a lifelong commitment to responsible engineering practice.</p>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.05em;font-weight:600;color:var(--ink);margin:32px 0 16px;">Certifications</h3>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img src="https://images.credly.com/images/a9cb9c79-8ed0-4626-9f5d-953b3e6c2597/linkedin_thumb_blob" alt="NASA Open Science Essentials badge" class="cert-badge">
+        <div class="cert-info">
+          <div class="cert-name">NASA Open Science Essentials</div>
+          <div class="cert-issuer">National Aeronautics and Space Administration &bull; Jun 2025</div>
+          <a href="https://www.credly.com/badges/0fd43564-cd54-40ed-af11-22bf003d4d3b/linked_in_profile" target="_blank">&#128279; View on Credly</a>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge-placeholder">&#128196;</div>
+        <div class="cert-info">
+          <div class="cert-name">FE Exam — In Preparation</div>
+          <div class="cert-issuer">Fundamentals of Engineering &bull; NCEES &bull; 2026</div>
+          <div style="font-size:0.78em;color:var(--muted);margin-top:4px;font-style:italic;">Systematic review of circuits, systems, signals, mathematics, and engineering economics</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coursework -->
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.05em;font-weight:600;color:var(--ink);margin:32px 0 16px;">Relevant Coursework</h3>
+    <div class="course-grid">
+      <div class="course-card"><h4>Control Systems</h4><span class="cm">EE &bull; CSUB</span><p>PID design, stability analysis (Bode, Nyquist), state-space, frequency response. Applied through hardware servo system identification with MATLAB tfest and pidtune.</p></div>
+      <div class="course-card"><h4>Digital Signal Processing</h4><span class="cm">EE &bull; CSUB</span><p>DTFT, z-transform, DTFS, FIR/IIR filters, spectral analysis, signal reconstruction. 3D stability surface generation across 400&times;400 z-plane grids.</p></div>
+      <div class="course-card"><h4>Robotics</h4><span class="cm">EE &bull; CSUB</span><p>Forward kinematics via Product of Exponentials, screw-axis theory, 4&times;4 homogeneous transforms, end-effector pose, 3D MATLAB visualization.</p></div>
+      <div class="course-card"><h4>Wireless Communications</h4><span class="cm">EE &bull; CSUB</span><p>Modulation, channel models, spectrum efficiency, noise and interference, antenna fundamentals. Foundation for EMI/EMC understanding.</p></div>
+      <div class="course-card"><h4>Analog Circuits</h4><span class="cm">EE &bull; CSUB</span><p>Op-amp design, feedback amplifiers, filters, oscillators, transistor circuits. Simulation in LTspice, PSpice, and Multisim.</p></div>
+      <div class="course-card"><h4>Robotics (Senior Year)</h4><span class="cm">EE &bull; CSUB</span><p>Advanced manipulator kinematics, dynamics, trajectory planning, and workspace analysis. Implemented and validated in MATLAB simulation environments.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="trace"></div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <h2>Get in Touch</h2>
+  <p>Open to instrumentation, embedded systems, and product development roles in Los Angeles.</p>
+  <div class="contact-links">
+    <a href="mailto:nony12.ammar@gmail.com" class="clink">&#9993; nony12.ammar@gmail.com</a>
+    <a href="tel:3105980566" class="clink">&#128222; (310) 598-0566</a>
+    <a href="https://linkedin.com/in/nour-ammar-b8578026a" class="clink" target="_blank">&#128279; LinkedIn</a>
+    <a href="https://github.com/Naaurrr" class="clink" target="_blank">&#128196; GitHub</a>
+  </div>
+</div>
+
+<div style="background:#060E17;padding:48px 80px;border-top:1px solid #1A2A3A;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.68em;color:rgba(255,255,255,0.25);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;">// All Links — Plain Text Reference</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 40px;">
+
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">Profile</span><br>
+        https://linkedin.com/in/nour-ammar-b8578026a
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">GitHub</span><br>
+        https://github.com/Naaurrr
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">Email</span><br>
+        nony12.ammar@gmail.com
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">GitHub / NeuroArm</span><br>
+        https://github.com/Naaurrr/NeuroArm
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">GitHub / Servo-PID-Tuning</span><br>
+        https://github.com/Naaurrr/Servo-PID-Tuning
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">GitHub / MPU6050-Flex-PCB-Breakout</span><br>
+        https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">NASA / EPIC Article</span><br>
+        https://www.nasa.gov/image-article/nasa-tests-epic-solution-for-supersonic-parachute-deliveries
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">Credly / NASA Open Science Badge</span><br>
+        https://www.credly.com/badges/0fd43564-cd54-40ed-af11-22bf003d4d3b/linked_in_profile
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
+        <span style="color:rgba(200,134,10,0.5);">CSUB / Senior Design Expo Poster (PDF)</span><br>
+        https://www.cs.csub.edu/seniorexpo/2025/ECE/Neuro%20Arm/poster.pdf
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>Nour Ammar &bull; Electrical Engineer &bull; nony12.ammar@gmail.com &bull; github.com/Naaurrr &bull; 2026</footer>
+
+</body>
+</html>
