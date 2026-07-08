@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nour Ammar — Electrical Engineer</title>
+<title>Nour Ammar - Electrical Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -92,10 +92,10 @@
   /* NASA EPIC PHOTO STRIP */
   .nasa-strip{margin-top:32px;}
   .nasa-strip-label{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;display:block;}
-  .nasa-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-  .nasa-photos img{width:100%;aspect-ratio:3/2;object-fit:contain;border-radius:6px;border:1px solid var(--borderD);display:block;transition:transform 0.2s,border-color 0.2s;cursor:pointer;background:var(--navy2);}
+  .nasa-photos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;}
+  .nasa-photos img{width:100%;object-fit:contain;border-radius:6px;border:1px solid var(--borderD);display:block;transition:transform 0.2s,border-color 0.2s;cursor:pointer;background:var(--navy2);aspect-ratio:3/2;}
   .nasa-photos img:hover{transform:scale(1.03);border-color:var(--amber);}
-  .nasa-photos img:first-child{grid-column:span 2;aspect-ratio:4/3;}
+  .nasa-photos img:first-child{grid-column:1;grid-row:1 / 3;aspect-ratio:unset;}
   .nasa-article-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78em;color:var(--amber2);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:12px;}
   .nasa-article-link:hover{color:var(--amber3);}
 
@@ -230,7 +230,7 @@
     <div>
       <span class="hero-eyebrow">// Electrical Engineer &bull; Instrumentation &bull; Embedded Systems &bull; PCB Design</span>
       <h1>Building hardware<br>that works in the<br><em>real world.</em></h1>
-      <p class="hero-bio">BS Electrical Engineering, CSUB — Cum Laude, May 2025. Instrumentation &amp; Test Engineering Intern at NASA Armstrong Flight Research Center, supporting the EPIC parachute sensor program. Background in embedded firmware, PCB design and assembly, control systems, and aerospace data acquisition.</p>
+      <p class="hero-bio">BS Electrical Engineering, CSUB - Cum Laude, May 2025. Instrumentation &amp; Test Engineering Intern at NASA Armstrong Flight Research Center, supporting the EPIC parachute sensor program. Background in embedded firmware, PCB design and assembly, control systems, and aerospace data acquisition.</p>
       <div class="hero-stats">
         <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">PCBs Designed</span></div>
         <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">Live Drop Tests</span></div>
@@ -295,7 +295,7 @@
       </div>
       <div class="exp-content">
         <h3>Instrumentation &amp; Test Engineering Intern</h3>
-        <p>Supported the EPIC (Enhancing Parachutes by Instrumenting the Canopy) project at NASA Armstrong Flight Research Center — research aimed at developing flexible strain-sensing technology for supersonic parachutes, with future applications for delivering scientific payloads to Mars. Integrated the VN-200 GNSS/INS sensor with embedded computers and microcontrollers across five live parachute drop tests, capturing synchronized acceleration, GPS, gyroscope, and position data at &plusmn;0.5&nbsp;ms timing accuracy.</p>
+        <p>Supported the EPIC (Enhancing Parachutes by Instrumenting the Canopy) project at NASA Armstrong Flight Research Center - research aimed at developing flexible strain-sensing technology for supersonic parachutes, with future applications for delivering scientific payloads to Mars. Integrated the VN-200 GNSS/INS sensor with embedded computers and microcontrollers across five live parachute drop tests, capturing synchronized acceleration, GPS, gyroscope, and position data at &plusmn;0.5&nbsp;ms timing accuracy.</p>
         <p>Designed three custom PCBs (two flexible) in Altium Designer and KiCad, including custom footprints for physical sensor mounting and deployment onto parachute canopies during live tests. Flex circuits used polyimide substrates with ENIG finish. Built Python DAQ pipelines with Butterworth zero-phase filtering and time synchronization across all five test runs, reducing preparation and analysis time by approximately 40%.</p>
         <p>Supported instrumentation setup, functional testing, and validation for two live canopy drop tests in the dry lake bed at Edwards AFB. Worked alongside NASA researchers from the Dale Reed Subscale Flight Research Laboratory developing methods for temperature testing flexible sensors and data analysis for future tests.</p>
         <div class="specs">
@@ -306,14 +306,14 @@
 
         <!-- NASA PHOTOS -->
         <div class="nasa-strip">
-          <span class="nasa-strip-label">// Field photography — NASA Armstrong, Edwards AFB, June 2025</span>
+          <span class="nasa-strip-label">// Field photography - NASA Armstrong, Edwards AFB, June 2025</span>
           <div class="nasa-photos">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team on dry lake bed during parachute drop test — NASA Armstrong, Edwards AFB" title="Drop test field work — NASA/Christopher LC Clark">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0864/AFRC2025-0094-0864~large.jpg?w=640&h=960&fit=clip&crop=faces%2Cfocalpoint" alt="Parachute deploying fully against blue sky after air launch" title="Parachute deployment — NASA/Christopher LC Clark">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0844/AFRC2025-0094-0844~large.jpg?w=800&h=640&fit=clip&crop=faces%2Cfocalpoint" alt="Alta X drone at altitude before releasing the EPIC experiment" title="Alta X drone at altitude — NASA/Christopher LC Clark">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0171/AFRC2025-0094-0171~large.jpg?w=800&h=533&fit=clip&crop=faces%2Cfocalpoint" alt="NASA researchers attaching capsule to the EPIC experiment" title="Capsule attachment — NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team on dry lake bed during parachute drop test - NASA Armstrong, Edwards AFB" title="Drop test field work - NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0864/AFRC2025-0094-0864~large.jpg?w=640&h=960&fit=clip&crop=faces%2Cfocalpoint" alt="Parachute deploying fully against blue sky after air launch" title="Parachute deployment - NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0844/AFRC2025-0094-0844~large.jpg?w=800&h=640&fit=clip&crop=faces%2Cfocalpoint" alt="Alta X drone at altitude before releasing the EPIC experiment" title="Alta X drone at altitude - NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0171/AFRC2025-0094-0171~large.jpg?w=800&h=533&fit=clip&crop=faces%2Cfocalpoint" alt="NASA researchers attaching capsule to the EPIC experiment" title="Capsule attachment - NASA/Christopher LC Clark">
           </div>
-          <a href="https://www.nasa.gov/image-article/nasa-tests-epic-solution-for-supersonic-parachute-deliveries/" class="nasa-article-link" target="_blank">&#128279; NASA.gov — "NASA Tests Epic Solution for Supersonic Parachute Deliveries" (Jul 2025)</a>
+          <a href="https://www.nasa.gov/image-article/nasa-tests-epic-solution-for-supersonic-parachute-deliveries/" class="nasa-article-link" target="_blank">&#128279; NASA.gov - "NASA Tests Epic Solution for Supersonic Parachute Deliveries" (Jul 2025)</a>
         </div>
       </div>
     </div>
@@ -334,7 +334,7 @@
         <div class="proj-two-col">
           <div class="proj-info">
             <span class="proj-type">Senior Capstone &bull; Project Leader &bull; Embedded Systems</span>
-            <h3>NeuroArm &mdash; Wireless EEG-Controlled Robotic Arm</h3>
+            <h3>NeuroArm - Wireless EEG-Controlled Robotic Arm</h3>
             <span class="proj-date">Sep 2024 &ndash; May 2025 &bull; CSUB Senior Design Expo 2025 &bull; Demonstrated live</span>
             <p>Led a 3-member team building a 2-DOF wireless robotic arm proof of concept controlled by EEG brain signals. Owned the full embedded firmware and wireless communication layer from concept to live demonstration at the Senior Design Expo.</p>
             <p>Configured ESP32 in SoftAP mode to create a direct Wi-Fi link to MATLAB, bypassing the university institutional network. Wrote C++ firmware to parse UDP command packets, drive three servo motors via PWM, and implement ACK-based handshake logic. Diagnosed and resolved a GPIO boot-mode conflict by remapping PWM pins from strapping pins (GPIO 0/2/5) to safe pins (GPIO 18/19/21) after oscilloscope debugging.</p>
@@ -350,10 +350,10 @@
             <a href="https://www.cs.csub.edu/seniorexpo/2025/ECE/Neuro%20Arm/poster.pdf" class="proj-link" target="_blank" style="margin-top:6px;">&#128196; Senior Design Expo Poster (PDF)</a>
           </div>
           <div class="proj-imgs">
-            <img src="IMG_6287.jpeg" alt="NeuroArm full assembled prototype on lab bench — 3D-printed arm, servo joints, monofilament finger actuation wires" class="proj-img-main" style="object-position:center top;">
+            <img src="IMG_6287.jpeg" alt="NeuroArm full assembled prototype on lab bench - 3D-printed arm, servo joints, monofilament finger actuation wires" class="proj-img-main" style="object-position:center top;">
             <div class="proj-img-row">
-              <img src="IMG_6259.jpeg" alt="NeuroArm base housing with Arduino Uno and servo wiring routing through arm structure — top-down view" style="object-position:center;">
-              <img src="IMG_6288.jpeg" alt="NeuroArm power electronics breadboard — toroidal inductor, electrolytic capacitors, 5V BEC circuit, servo wiring harness — top-down view" style="object-position:center;">
+              <img src="IMG_6259.jpeg" alt="NeuroArm base housing with Arduino Uno and servo wiring routing through arm structure - top-down view" style="object-position:center;">
+              <img src="IMG_6288.jpeg" alt="NeuroArm power electronics breadboard - toroidal inductor, electrolytic capacitors, 5V BEC circuit, servo wiring harness - top-down view" style="object-position:center;">
             </div>
           </div>
         </div>
@@ -367,10 +367,10 @@
             <h3>MPU-6050 Flex PCB Breakout</h3>
             <span class="proj-date">May 2026 &ndash; Present &bull; KiCad 7 &bull; Fabricated at JLCPCB</span>
             <p>Designed a single-layer flexible PCB breakout for the MPU-6050 6-axis IMU in KiCad. Polyimide substrate, ENIG finish, 0603 and 0201 SMD components. Custom schematic symbol for the MPU-6050 GY-521 module. Laser-cut star profile with silkscreen artwork. Board dimensions: 37.21 &times; 38.07mm. C1 (100nF decoupling) placed within 2.5mm of VCC pin. LED resistor calculated at 130&Omega;.</p>
-            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation — documented and flagged for Rev B.</p>
+            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation - documented and flagged for Rev B.</p>
             <div class="proj-highlight">
               <span class="hl">Debug outcome</span>
-              <span class="hv">Reversed LED polarity on D1 &mdash; caught via systematic DMM testing &mdash; documented for next revision</span>
+              <span class="hv">Reversed LED polarity on D1 - caught via systematic DMM testing - documented for next revision</span>
             </div>
             <div class="proj-tags">
               <span class="ptg">KiCad 7</span><span class="ptg">Flex PCB</span><span class="ptg">ENIG</span>
@@ -379,10 +379,10 @@
             <a href="https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/MPU6050-Flex-PCB-Breakout</a>
           </div>
           <div class="proj-imgs">
-            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB fresh from JLCPCB fabrication — black polyimide star profile, gold ENIG copper traces, next to GY-521 module for scale" class="proj-img-main" style="object-position:center;">
+            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB fresh from JLCPCB fabrication - black polyimide star profile, gold ENIG copper traces, next to GY-521 module for scale" class="proj-img-main" style="object-position:center;">
             <div class="proj-img-row">
-              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB held in helping-hands tool during assembly — silkscreen labels, VCC/GND/SCL/SDA header, R1 and C1 pads, custom bird artwork and Nour signature" style="object-position:top;">
-              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB laid flat with tape fixturing — R1 and D1 assembled, J1 header pads visible, post-reflow inspection" style="object-position:center;">
+              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB held in helping-hands tool during assembly - silkscreen labels, VCC/GND/SCL/SDA header, R1 and C1 pads, custom bird artwork and Nour signature" style="object-position:top;">
+              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB laid flat with tape fixturing - R1 and D1 assembled, J1 header pads visible, post-reflow inspection" style="object-position:center;">
             </div>
           </div>
         </div>
@@ -393,7 +393,7 @@
         <div class="proj-two-col">
           <div class="proj-info">
             <span class="proj-type">Personal Project &bull; Control Systems &bull; System Identification</span>
-            <h3>Servo-PID-Tuning &mdash; Hardware System Identification</h3>
+            <h3>Servo-PID-Tuning - Hardware System Identification</h3>
             <span class="proj-date">Mar 2026 &bull; MATLAB / Arduino</span>
             <p>Performed hardware-in-the-loop system identification on hobby servo motors. Arduino swept 1000&ndash;2000&nbsp;&mu;s PWM while reading potentiometer angle feedback via a 3D-printed mechanical coupling at 50&nbsp;Hz. MATLAB: tfest &rarr; 2nd-order TF at 88.8% fit. ZOH discretization at Ts&nbsp;=&nbsp;0.021&nbsp;s. pidtune &rarr; Kp&nbsp;14.50, Ki&nbsp;98.12, Kd&nbsp;0.14. Closed-loop simulation validated. Gains not deployed to hardware.</p>
             <div class="proj-highlight">
@@ -505,7 +505,7 @@
       <div class="oe-ring">&#9951;</div>
       <div class="oe-text">
         <h4>Order of the Engineer</h4>
-        <p>Induction into the Order of the Engineer, an obligation taken by engineers in the United States to uphold the dignity, standards, and ethics of the engineering profession. Signified by the wearing of a stainless steel ring on the working hand — a lifelong commitment to responsible engineering practice.</p>
+        <p>Induction into the Order of the Engineer, an obligation taken by engineers in the United States to uphold the dignity, standards, and ethics of the engineering profession. Signified by the wearing of a stainless steel ring on the working hand - a lifelong commitment to responsible engineering practice.</p>
       </div>
     </div>
 
@@ -523,7 +523,7 @@
       <div class="cert-card">
         <div class="cert-badge-placeholder">&#128196;</div>
         <div class="cert-info">
-          <div class="cert-name">FE Exam — In Preparation</div>
+          <div class="cert-name">FE Exam - In Preparation</div>
           <div class="cert-issuer">Fundamentals of Engineering &bull; NCEES &bull; 2026</div>
           <div style="font-size:0.78em;color:var(--muted);margin-top:4px;font-style:italic;">Systematic review of circuits, systems, signals, mathematics, and engineering economics</div>
         </div>
@@ -559,7 +559,7 @@
 
 <div style="background:#060E17;padding:48px 80px;border-top:1px solid #1A2A3A;">
   <div style="max-width:1100px;margin:0 auto;">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:0.68em;color:rgba(255,255,255,0.25);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;">// All Links — Plain Text Reference</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.68em;color:rgba(255,255,255,0.25);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;">// All Links - Plain Text Reference</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 40px;">
 
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
