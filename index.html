@@ -10,7 +10,7 @@
   :root {
     --navy:#0D1B2A; --navy2:#152236; --navy3:#1C2F44;
     --cream:#F7F4EF; --cream2:#EEE9E1;
-    --amber:#C8860A; --amber2:#E8A01A; --amber3:#F5B830;
+    --amber:#0D9488; --amber2:#14B8A6; --amber3:#2DD4BF;
     --ink:#1C2B3A; --mid:#4A5C6A; --muted:#8A929E;
     --border:#D8D4CC; --borderD:#2A3D50;
   }
@@ -29,7 +29,7 @@
   /* HERO */
   .hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 80px 80px;position:relative;overflow:hidden;}
   .hero-bg-grid{position:absolute;inset:0;opacity:0.032;background-image:linear-gradient(var(--amber) 1px,transparent 1px),linear-gradient(90deg,var(--amber) 1px,transparent 1px);background-size:44px 44px;}
-  .hero-glow{position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,134,10,0.07) 0%,transparent 70%);pointer-events:none;}
+  .hero-glow{position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,0.07) 0%,transparent 70%);pointer-events:none;}
   .hero-inner{display:grid;grid-template-columns:1fr 320px;gap:72px;align-items:center;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;}
   .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.74em;color:var(--amber2);letter-spacing:0.14em;margin-bottom:20px;display:block;}
   .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4em,5vw,3.8em);font-weight:700;color:white;line-height:1.08;letter-spacing:-0.03em;margin-bottom:22px;}
@@ -52,10 +52,10 @@
   .profile-name{font-family:'Space Grotesk',sans-serif;font-size:0.97em;font-weight:700;color:white;margin-bottom:3px;}
   .profile-title{font-size:0.8em;color:rgba(255,255,255,0.45);margin-bottom:14px;}
   .profile-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:16px;}
-  .ptag{font-size:0.68em;background:rgba(200,134,10,0.12);color:var(--amber2);border:1px solid rgba(200,134,10,0.22);padding:3px 9px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
+  .ptag{font-size:0.68em;background:rgba(13,148,136,0.12);color:var(--amber2);border:1px solid rgba(13,148,136,0.22);padding:3px 9px;border-radius:20px;font-family:'JetBrains Mono',monospace;}
   .profile-links{display:flex;flex-direction:column;gap:7px;}
   .plink{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:rgba(255,255,255,0.6);font-size:0.77em;text-decoration:none;transition:all 0.2s;font-family:'JetBrains Mono',monospace;text-align:left;}
-  .plink:hover{background:rgba(200,134,10,0.1);border-color:var(--amber);color:var(--amber2);}
+  .plink:hover{background:rgba(13,148,136,0.1);border-color:var(--amber);color:var(--amber2);}
 
   /* DIVIDER */
   .trace{height:2px;background:linear-gradient(90deg,transparent,var(--amber) 25%,var(--amber2) 50%,var(--amber) 75%,transparent);opacity:0.45;}
@@ -87,13 +87,13 @@
   .exp-content h3{font-family:'Space Grotesk',sans-serif;font-size:1.08em;font-weight:600;color:white;margin-bottom:12px;}
   .exp-content p{font-size:0.87em;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:10px;}
   .specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
-  .spec{font-family:'JetBrains Mono',monospace;font-size:0.7em;background:rgba(200,134,10,0.1);color:var(--amber2);padding:3px 10px;border-radius:4px;border:1px solid rgba(200,134,10,0.2);}
+  .spec{font-family:'JetBrains Mono',monospace;font-size:0.7em;background:rgba(13,148,136,0.1);color:var(--amber2);padding:3px 10px;border-radius:4px;border:1px solid rgba(13,148,136,0.2);}
 
   /* NASA EPIC PHOTO STRIP */
   .nasa-strip{margin-top:32px;}
   .nasa-strip-label{font-family:'JetBrains Mono',monospace;font-size:0.68em;color:var(--amber2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;display:block;}
   .nasa-photos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-  .nasa-photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px;border:1px solid var(--borderD);display:block;transition:transform 0.2s,border-color 0.2s;cursor:pointer;}
+  .nasa-photos img{width:100%;aspect-ratio:3/2;object-fit:contain;border-radius:6px;border:1px solid var(--borderD);display:block;transition:transform 0.2s,border-color 0.2s;cursor:pointer;background:var(--navy2);}
   .nasa-photos img:hover{transform:scale(1.03);border-color:var(--amber);}
   .nasa-photos img:first-child{grid-column:span 2;aspect-ratio:4/3;}
   .nasa-article-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78em;color:var(--amber2);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:12px;}
@@ -118,12 +118,12 @@
   .ptg{font-size:0.69em;background:#EDEAE4;color:var(--mid);padding:3px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;}
   .proj-link{display:inline-flex;align-items:center;gap:5px;font-size:0.76em;color:var(--amber);text-decoration:none;font-family:'JetBrains Mono',monospace;margin-top:10px;}
   .proj-link:hover{color:var(--amber2);}
-  .proj-img-main{width:100%;height:260px;object-fit:cover;display:block;}
+  .proj-img-main{width:100%;height:260px;object-fit:contain;display:block;background:var(--navy);}
   .proj-img-row{display:grid;grid-template-columns:1fr 1fr;}
-  .proj-img-row img{width:100%;height:150px;object-fit:cover;display:block;border-top:1px solid var(--borderD);}
+  .proj-img-row img{width:100%;height:150px;object-fit:contain;display:block;border-top:1px solid var(--borderD);background:var(--navy);}
   .proj-img-row img:first-child{border-right:1px solid var(--borderD);}
   .proj-img-stack{display:flex;flex-direction:column;height:100%;}
-  .proj-img-stack img{flex:1;width:100%;object-fit:cover;display:block;}
+  .proj-img-stack img{flex:1;width:100%;object-fit:contain;display:block;background:var(--navy);}
   .proj-img-stack img+img{border-top:1px solid var(--borderD);}
   .proj-expo-row{display:grid;grid-template-columns:1fr 1fr;height:100%;}
   .proj-expo-row > *{display:flex;flex-direction:column;justify-content:center;align-items:center;}
@@ -172,7 +172,7 @@
   .edu-main .deg{font-size:0.87em;color:var(--mid);margin-bottom:5px;}
   .edu-main .gpa{font-family:'JetBrains Mono',monospace;font-size:0.76em;color:var(--amber);margin-bottom:12px;display:block;}
   .honors{display:flex;flex-wrap:wrap;gap:7px;}
-  .honor{font-size:0.73em;background:rgba(200,134,10,0.08);color:var(--amber);border:1px solid rgba(200,134,10,0.22);padding:4px 10px;border-radius:20px;font-weight:500;}
+  .honor{font-size:0.73em;background:rgba(13,148,136,0.08);color:var(--amber);border:1px solid rgba(13,148,136,0.22);padding:4px 10px;border-radius:20px;font-weight:500;}
   .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
   .course-card{background:white;border:1px solid var(--border);border-radius:10px;padding:18px 20px;}
   .course-card h4{font-family:'Space Grotesk',sans-serif;font-size:0.87em;font-weight:700;color:var(--ink);margin-bottom:3px;}
@@ -185,7 +185,7 @@
   .contact-wrap p{color:rgba(255,255,255,0.45);margin-bottom:34px;font-size:0.93em;}
   .contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
   .clink{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);color:rgba(255,255,255,0.72);font-size:0.84em;padding:11px 20px;border-radius:6px;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;transition:all 0.2s;}
-  .clink:hover{background:rgba(200,134,10,0.12);border-color:var(--amber);color:var(--amber2);}
+  .clink:hover{background:rgba(13,148,136,0.12);border-color:var(--amber);color:var(--amber2);}
 
   footer{background:#060E17;text-align:center;padding:20px;font-size:0.73em;color:rgba(255,255,255,0.18);font-family:'JetBrains Mono',monospace;}
 
@@ -303,9 +303,7 @@
         <div class="nasa-strip">
           <span class="nasa-strip-label">// Field photography — NASA Armstrong, Edwards AFB, June 2025</span>
           <div class="nasa-photos">
-            <!-- Your uploaded LinkedIn photo -->
-            <img src="nasa_field_photo.png" alt="Nour Ammar setting up parachute canopy on dry lake bed at Edwards AFB — NASA Armstrong EPIC drop test" title="Setting up parachute canopy for drop test — Edwards AFB, 2025">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team examining capsule and parachute after drop test on dry lake bed" title="Post-recovery inspection — NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team on dry lake bed during parachute drop test — NASA Armstrong, Edwards AFB" title="Drop test field work — NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0864/AFRC2025-0094-0864~large.jpg?w=640&h=960&fit=clip&crop=faces%2Cfocalpoint" alt="Parachute deploying fully against blue sky after air launch" title="Parachute deployment — NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0844/AFRC2025-0094-0844~large.jpg?w=800&h=640&fit=clip&crop=faces%2Cfocalpoint" alt="Alta X drone at altitude before releasing the EPIC experiment" title="Alta X drone at altitude — NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0171/AFRC2025-0094-0171~large.jpg?w=800&h=533&fit=clip&crop=faces%2Cfocalpoint" alt="NASA researchers attaching capsule to the EPIC experiment" title="Capsule attachment — NASA/Christopher LC Clark">
@@ -560,41 +558,41 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 40px;">
 
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">Profile</span><br>
+        <span style="color:rgba(13,148,136,0.5);">Profile</span><br>
         https://linkedin.com/in/nour-ammar-b8578026a
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">GitHub</span><br>
+        <span style="color:rgba(13,148,136,0.5);">GitHub</span><br>
         https://github.com/Naaurrr
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">Email</span><br>
+        <span style="color:rgba(13,148,136,0.5);">Email</span><br>
         nony12.ammar@gmail.com
       </div>
 
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">GitHub / NeuroArm</span><br>
+        <span style="color:rgba(13,148,136,0.5);">GitHub / NeuroArm</span><br>
         https://github.com/Naaurrr/NeuroArm
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">GitHub / Servo-PID-Tuning</span><br>
+        <span style="color:rgba(13,148,136,0.5);">GitHub / Servo-PID-Tuning</span><br>
         https://github.com/Naaurrr/Servo-PID-Tuning
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">GitHub / MPU6050-Flex-PCB-Breakout</span><br>
+        <span style="color:rgba(13,148,136,0.5);">GitHub / MPU6050-Flex-PCB-Breakout</span><br>
         https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout
       </div>
 
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">NASA / EPIC Article</span><br>
+        <span style="color:rgba(13,148,136,0.5);">NASA / EPIC Article</span><br>
         https://www.nasa.gov/image-article/nasa-tests-epic-solution-for-supersonic-parachute-deliveries
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">Credly / NASA Open Science Badge</span><br>
+        <span style="color:rgba(13,148,136,0.5);">Credly / NASA Open Science Badge</span><br>
         https://www.credly.com/badges/0fd43564-cd54-40ed-af11-22bf003d4d3b/linked_in_profile
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.72em;color:rgba(255,255,255,0.22);padding:3px 0;border-bottom:1px solid #1A2A3A;">
-        <span style="color:rgba(200,134,10,0.5);">CSUB / Senior Design Expo Poster (PDF)</span><br>
+        <span style="color:rgba(13,148,136,0.5);">CSUB / Senior Design Expo Poster (PDF)</span><br>
         https://www.cs.csub.edu/seniorexpo/2025/ECE/Neuro%20Arm/poster.pdf
       </div>
 
