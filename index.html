@@ -198,6 +198,24 @@
     .repos-grid,.cert-grid{grid-template-columns:1fr;}
     .contact-wrap{padding:56px 20px;}
   }
+
+  /* PRINT / PDF — preserve dark colors */
+  @media print {
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+    nav{display:none!important;}
+    body{background:var(--cream)!important;}
+    section.dark{background:var(--navy)!important;}
+    section.mid{background:var(--cream2)!important;}
+    .proj-card{background:white!important;border:1px solid var(--border)!important;break-inside:avoid;}
+    .proj-imgs{background:var(--navy)!important;}
+    .proj-imgs img{object-fit:contain!important;}
+    .hero{background:var(--navy)!important;min-height:auto!important;page-break-after:always;}
+    .skill-card{background:white!important;border:1px solid var(--border)!important;break-inside:avoid;}
+    .repo-card{background:var(--navy2)!important;break-inside:avoid;}
+    .exp-item{break-inside:avoid;}
+    .nasa-photos img{background:var(--navy2)!important;}
+    .trace{background:linear-gradient(90deg,transparent,var(--amber) 25%,var(--amber2) 50%,var(--amber) 75%,transparent)!important;}
+  }
 </style>
 </head>
 <body>
@@ -263,7 +281,7 @@
     <h2 class="section-h">Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill-card"><h4>PCB Design &amp; Fabrication</h4><ul><li>Altium Designer</li><li>KiCad 7</li><li>Flex PCB (polyimide)</li><li>Schematic Capture</li><li>Custom Footprints</li><li>ENIG Finish</li><li>Gerber Review / DRC</li></ul></div>
-      <div class="skill-card"><h4>Assembly &amp; Integration</h4><ul><li>SMD Soldering (0201, 0603)</li><li>THT Soldering</li><li>Syringe Paste Application</li><li>Reflow Techniques</li><li>Sensor Integration</li><li>ESD Awareness</li><li>Breadboarding</li></ul></div>
+      <div class="skill-card"><h4>Assembly &amp; Integration</h4><ul><li>SMD Soldering (0201, 0603)</li><li>THT Soldering</li><li>Syringe Solder Repositioning</li><li>Sensor Integration</li><li>ESD Awareness</li><li>Breadboarding</li></ul></div>
       <div class="skill-card"><h4>Test &amp; Instrumentation</h4><ul><li>Oscilloscopes</li><li>Multimeters (DMM)</li><li>Waveform Generators</li><li>Continuity Testing</li><li>DAQ Systems</li><li>LabVIEW</li><li>Functional Testing</li></ul></div>
       <div class="skill-card"><h4>Embedded Systems</h4><ul><li>ESP32 / Arduino / STM32</li><li>Raspberry Pi</li><li>C++ Firmware</li><li>PWM Control</li><li>UDP/IP Communication</li><li>Wi-Fi SoftAP (IEEE 802.11)</li></ul></div>
       <div class="skill-card"><h4>Programming &amp; Modeling</h4><ul><li>MATLAB / Simulink</li><li>Python</li><li>C++</li><li>PID Control</li><li>System Identification</li><li>Signal Processing</li><li>Git / GitHub</li></ul></div>
@@ -301,7 +319,7 @@
         <div class="nasa-strip">
           <span class="nasa-strip-label">// Field photography - NASA Armstrong, Edwards AFB, June 2025</span>
           <div class="nasa-photos">
-            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=800&h=1120&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team on dry lake bed during parachute drop test - NASA Armstrong, Edwards AFB" title="Drop test field work - NASA/Christopher LC Clark">
+            <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-3310/AFRC2025-0094-3310~large.jpg?w=1371&h=1920&fit=clip&crop=faces%2Cfocalpoint" alt="EPIC team on dry lake bed during parachute drop test - NASA Armstrong, Edwards AFB" title="Drop test field work - NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0864/AFRC2025-0094-0864~large.jpg?w=640&h=960&fit=clip&crop=faces%2Cfocalpoint" alt="Parachute deploying fully against blue sky after air launch" title="Parachute deployment - NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0844/AFRC2025-0094-0844~large.jpg?w=800&h=640&fit=clip&crop=faces%2Cfocalpoint" alt="Alta X drone at altitude before releasing the EPIC experiment" title="Alta X drone at altitude - NASA/Christopher LC Clark">
             <img src="https://images-assets.nasa.gov/image/AFRC2025-0094-0171/AFRC2025-0094-0171~large.jpg?w=800&h=533&fit=clip&crop=faces%2Cfocalpoint" alt="NASA researchers attaching capsule to the EPIC experiment" title="Capsule attachment - NASA/Christopher LC Clark">
@@ -358,12 +376,12 @@
           <div class="proj-info">
             <span class="proj-type">Personal Project &bull; PCB Design &bull; Hardware Debug</span>
             <h3>MPU-6050 Flex PCB Breakout</h3>
-            <span class="proj-date">May 2026 &ndash; Present &bull; KiCad 7 &bull; Fabricated at JLCPCB</span>
-            <p>Designed a single-layer flexible PCB breakout for the MPU-6050 6-axis IMU in KiCad. Polyimide substrate, ENIG finish, 0603 and 0201 SMD components. Custom schematic symbol for the MPU-6050 GY-521 module. Laser-cut star profile with silkscreen artwork. Board dimensions: 37.21 &times; 38.07mm. C1 (100nF decoupling) placed within 2.5mm of VCC pin. LED resistor calculated at 130&Omega;.</p>
-            <p>Assembled using syringe solder paste and tape fixturing during reflow. Post-assembly DMM continuity testing isolated a reversed LED polarity fault in the footprint orientation. Root cause documented and corrected in the Rev B schematic. This project is ongoing and actively in progress.</p>
+            <span class="proj-date">Jun 2026 &bull; KiCad 7 &bull; Fabricated at JLCPCB</span>
+            <p>Designed a single-layer flexible PCB breakout for the MPU-6050 6-axis IMU in KiCad. Polyimide substrate, ENIG finish, 0603 and 0201 SMD components. Custom schematic symbol for the MPU-6050 GY-521 module (pins numbered 1&ndash;8 to match GY-521 header pinout). Laser-cut star profile with koi fish silkscreen artwork. Board dimensions: 37.21 &times; 38.07mm. C1 (100nF decoupling) placed within 2.5mm of VCC pin. LED resistor calculated at 150&Omega;.</p>
+            <p>Hand-soldered 0603 components (R1, D1) and 0201 capacitor (C1) using syringe-assisted solder repositioning for sub-millimeter pad alignment. Post-assembly DMM continuity testing confirmed no shorts. I2C scan verified device at address 0x68. Live AccX/Y/Z and GyroX/Y/Z data confirmed streaming at 100Hz via ELEGOO ESP32.</p>
             <div class="proj-highlight">
               <span class="hl">Status</span>
-              <span class="hv">Rev B in progress - LED polarity corrected in schematic, actively working toward next fabrication run</span>
+              <span class="hv">Completed Jun 2026 &mdash; I2C scan: 0x68 confirmed &bull; LED operational &bull; Live sensor data streaming at 100Hz</span>
             </div>
             <div class="proj-tags">
               <span class="ptg">KiCad 7</span><span class="ptg">Flex PCB</span><span class="ptg">ENIG</span>
@@ -371,12 +389,10 @@
             </div>
             <a href="https://github.com/Naaurrr/MPU6050-Flex-PCB-Breakout" class="proj-link" target="_blank">&#128196; github.com/Naaurrr/MPU6050-Flex-PCB-Breakout</a>
           </div>
-          <div class="proj-imgs">
-            <img src="IMG_0514.jpeg" alt="MPU-6050 flex PCB star profile with ENIG traces" class="proj-img-main">
-            <div style="display:flex;flex-direction:column;border-left:1px solid var(--borderD);">
-              <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB during assembly" style="flex:1;width:100%;height:140px;object-fit:contain;display:block;background:var(--navy2);">
-              <img src="IMG_0521.jpeg" alt="MPU-6050 flex PCB post-reflow inspection" style="flex:1;width:100%;height:140px;object-fit:contain;display:block;background:var(--navy);border-top:1px solid var(--borderD);">
-            </div>
+          <div class="proj-imgs" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;min-height:280px;background:var(--navy);overflow:hidden;">
+            <img src="board_lit.jpg" alt="MPU-6050 flex PCB assembled — full setup with LED lit and ESP32" style="width:100%;height:280px;object-fit:contain;display:block;background:var(--navy);border-right:1px solid var(--borderD);">
+            <img src="board_front.jpg" alt="MPU-6050 flex PCB front — koi fish silkscreen on black coverlay" style="width:100%;height:280px;object-fit:contain;display:block;background:var(--navy2);border-right:1px solid var(--borderD);">
+            <img src="IMG_0515.jpeg" alt="MPU-6050 flex PCB bare board before assembly" style="width:100%;height:280px;object-fit:contain;display:block;background:var(--navy);">
           </div>
         </div>
       </div>
